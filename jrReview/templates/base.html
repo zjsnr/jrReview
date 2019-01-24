@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title> {% block title %}
+        Default title
+    {% endblock %} </title>
+    {% block favicon %}
+        <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    {% endblock %}
+    
+    {% block css %}
+        {{ bootstrap.load_css() }}
+    {% endblock %}
+</head>
+<body>
+    {% block navbar %}  {% endblock %}
+    {% block content %} {% endblock %}
+    {% block footer %}  {% endblock %}
+    {% block scripts %}
+        {{ bootstrap.load_js() }}
+    {% endblock %}
+</body>
+</html>
