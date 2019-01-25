@@ -5,7 +5,7 @@ def initApp():
     app = flask.Flask(__name__, instance_relative_config=True)
     # config
     app.config.from_object('config')
-    app.config.from_pyfile('config.py')
+    app.config.from_pyfile('config.py', silent=True)
     
     # extensions
     Bootstrap().init_app(app)

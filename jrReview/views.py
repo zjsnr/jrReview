@@ -1,6 +1,8 @@
 import flask
 from jrReview import app
+from jrReview.pages import getPages
 
 @app.route('/')
 def index():
-    return flask.render_template('index.html')
+    pages = getPages()
+    return flask.render_template('index.html', pages=pages)

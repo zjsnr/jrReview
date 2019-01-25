@@ -4,22 +4,29 @@
 
 
 {% block scripts %}
-    {{ super() }}
-    <script type="text/javascript" src="{{ url_for('static', filename='js/fullpage.min.js') }}"></script>
-    <script type="text/javascript" src="{{ url_for('static', filename='js/jrReview.js') }}"></script>
+{{ super() }}
+<script type="text/javascript" src="{{ url_for('static', filename='js/fullpage.min.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='js/jrReview.js') }}"></script>
 {% endblock %}
 
 {% block css %}
-    {{ super() }}
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/fullpage.min.css') }}" />
+{{ super() }}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/fullpage.min.css') }}" />
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}" />
 {% endblock %}
 
 
 {% block content %}
 <div id="fullpage">
-	<div class="section">section 1</div>
-	<div class="section">section 2</div>
-	<div class="section">section 4</div>
-	<div class="section">section 3</div>
+    {% for page in pages %}
+    <div class="section">
+        <h2 class="pageTitle"> {{ page.title }} </h2>
+        <div class="pageText"> {{ page.text }} </div>
+
+        <div class="pageImage">
+            <img src="{{page.background}}">
+        </div>
+    </div>
+    {% endfor %}
 </div>
 {% endblock %}

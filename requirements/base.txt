@@ -1,3 +1,2 @@
-base.txt
 flask
 bootstrap-flask
